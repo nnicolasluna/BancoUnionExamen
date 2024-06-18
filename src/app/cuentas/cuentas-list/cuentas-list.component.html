@@ -1,0 +1,21 @@
+<mat-card appearance="outlined">
+  <div class="headerGeneric">
+
+    <div class="title">Cuentas Registradas</div>
+    <div>
+      <button class="btn btn--primary" routerLink="/clientes">Volver</button>
+      <button class="btn btn--simple" routerLink="/cuenta-Nuevo/{{uuid}}">Añadir Cuenta</button>
+    </div>
+  </div>
+  <mat-card-content>
+    <app-tables [dataSource]="registros_dataSource" [displayedColumns]="[
+            'tipoProducto',
+            'numeroCuenta', 
+            'moneda',
+            'monto',
+            'sucursal',
+            'createdAt',
+            ]" [editar]='"/cuenta-Editar/cuenta"' [listarCuentas]=null [borrar]='"cuenta"'></app-tables>
+  </mat-card-content>
+
+</mat-card>

@@ -1,0 +1,25 @@
+<mat-card appearance="outlined">
+    <div class="headerGeneric">
+      <div class="title">Clientes Registrados </div>
+        <button class="btn btn--simple" routerLink="/cliente-Nuevo">Añadir Cliente</button>
+
+    </div>
+    <mat-card-content>
+        <app-tables 
+        [dataSource]="registros_dataSource" 
+        [displayedColumns]="[
+            'nombre',
+            'paterno', 
+            'materno',
+            'tipoDocumento',
+            'documentoIdentidad',
+            'genero',
+            'fechaNacimiento'
+            ]"
+            [editar]='"/cliente-Editar"'
+            [listarCuentas]='"/cuentas"'
+            [borrar]='"cliente"'
+            ></app-tables>
+    </mat-card-content>
+  
+  </mat-card>

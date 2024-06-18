@@ -1,0 +1,50 @@
+<form [formGroup]="formGroup">
+    <mat-card appearance="outlined" class="card">
+
+        <div class="card__header">
+            <mat-card-title>Datos de Cliente</mat-card-title>
+        </div>
+        <mat-card-content class="card__content">
+
+            <div class="inputLabel">
+                <label for="">Nombres</label>
+                <input type="text" formControlName="nombre" placeholder="Nombres">
+            </div>
+            <div class="inputLabel">
+                <label for="">Apellido Paterno</label>
+                <input type="text" formControlName="paterno" placeholder="Apellido Paterno">
+            </div>
+            <div class="inputLabel">
+                <label for="">Apellido Materno</label>
+                <input type="text" formControlName="materno" placeholder="Apellido Materno">
+            </div>
+            <div class="inputLabel">
+                <label for="">Tipo De Documento</label>
+                <input type="text" formControlName="tipoDocumento" placeholder=">Tipo De Documento">
+            </div>
+            <div class="inputLabel">
+                <label for="">Numero De Documento</label>
+                <input type="text" formControlName="documentoIdentidad" placeholder="Numero De Documento">
+            </div>
+            <div class="inputLabel">
+                <label for="">Fecha de Nacimiento</label>
+                <input type="date" formControlName="fechaNacimiento" placeholder="Fecha de Nacimiento">
+            </div>
+            <div class="inputLabel">
+                <label for="">Genero</label>
+                <select formControlName="genero" placeholder="Masculino">
+                    <option value="Masculino">Masculino</option>
+                    <option value="Femenino">Femenino</option>
+                </select>
+            </div>
+
+
+
+
+        </mat-card-content>
+        <mat-card-actions class="footer">
+            <button class="btn btn--simple" type="button" routerLink="/clientes">Volver</button>
+            <button class="btn btn--primary" type="button" (click)="guardarDatos()">Guardar</button>
+        </mat-card-actions>
+    </mat-card>
+</form>

@@ -1,0 +1,42 @@
+<mat-card appearance="outlined" class="card">
+
+    <mat-card-content>
+        <table mat-table [dataSource]="dataSource">
+
+            <ng-container *ngFor="let col of displayedColumns">
+                <ng-container matColumnDef="{{ col }}">
+                    <th mat-header-cell *matHeaderCellDef>{{ col }}</th>
+                    <td mat-cell *matCellDef="let element">{{ element[col] }}</td>
+                </ng-container>
+            </ng-container>
+
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef>Acciones</th>
+                <td mat-cell *matCellDef="let row">
+                    <button mat-icon-button color="primary" *ngIf="!(listarCuentas === '' || listarCuentas === null)"
+                        [routerLink]="[listarCuentas, row.uuid]" matTooltip="Cuentas Bancarias">
+                        <mat-icon>visibility</mat-icon>
+                    </button>
+                    <button mat-icon-button color="basic" [routerLink]="[editar, row.uuid]" matTooltip="Editar">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-icon-button color="warn" (click)="borrarRegistro(borrar,row.uuid)"
+                        matTooltip="Eliminar">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </td>
+            </ng-container>
+
+            <!-- Filas de datos -->
+            <tr mat-header-row *matHeaderRowDef="displayedColumns.concat('actions')"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns.concat('actions');"></tr>
+
+            <tr *ngIf="dataSource.data.length === 0">
+                <td mat-cell [attr.colspan]="displayedColumns.length + 1">
+                  No hay datos registrados
+                </td>
+              </tr>
+        </table>
+
+    </mat-card-content>
+</mat-card>

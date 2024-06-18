@@ -1,0 +1,47 @@
+<form [formGroup]="formGroup">
+    <mat-card appearance="outlined" class="card">
+
+        <div class="card__header">
+            <mat-card-title>Datos de Cuenta</mat-card-title>
+        </div>
+
+        <mat-card-content class="card__content">
+
+            <div class="inputLabel">
+                <label for="">Tipo De Cuenta</label>
+                <input type="text" formControlName="tipoProducto" placeholder="Tipo De Cuenta">
+            </div>
+
+            <div class="inputLabel">
+                <label for="">Numero De Cuenta</label>
+                <input type="text" formControlName="numeroCuenta" placeholder="Numero De Cuenta">
+            </div>
+
+            <div class="inputLabel">
+                <label for="">Moneda</label>
+                <input type="text" formControlName="moneda" placeholder="Moneda">
+            </div>
+            <div class="inputLabel">
+                <label for="">Monto</label>
+                <input type="text" formControlName="monto" placeholder="Monto">
+            </div>
+            <div class="inputLabel">
+                <label for="">Sucursal</label>
+                <input type="text" formControlName="sucursal" placeholder="Sucursal">
+            </div>
+
+
+
+
+
+
+
+        </mat-card-content>
+        <div class="footer">
+
+            <button class="btn btn--simple" type="button" routerLink="/cuentas/{{uuidCliente}}">Volver</button>
+            <button class="btn btn--primary" type="button" (click)="guardarDatos()">Guardar</button>
+
+        </div>
+    </mat-card>
+</form>
